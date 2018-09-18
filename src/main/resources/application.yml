@@ -1,13 +1,19 @@
-#Êı¾İÔ´ÅäÖÃ
+#springé…ç½®
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/blog
+    url: jdbc:mysql://localhost:3306/blog?useSSL=false
     username: root
     password: root
+  redis:
+    host: 192.168.9.30
+    port: 6379
 
-#redisÅäÖÃ
-redis:
-   sentinel:
-     master: mymaster
-     nodes:  47.106.38.101:26379,47.106.38.101:26380
+#redisé…ç½®
+#  redis:
+#    sentinel:
+#     master: mymaster
+#     nodes: 192.168.9.30:6379
+
+
+
