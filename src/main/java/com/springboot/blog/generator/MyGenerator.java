@@ -25,13 +25,14 @@ public class MyGenerator {
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
-        gc.setOutputDir("D:\\test");
+        gc.setOutputDir("E:\\blog\\src\\main\\java");
+        //gc.setOutputDir("D:\\test");
         gc.setFileOverride(true);
         gc.setActiveRecord(true);
         gc.setEnableCache(false);// XML 二级缓存
         gc.setBaseResultMap(false);// XML ResultMap
         gc.setBaseColumnList(false);// XML columList
-        gc.setAuthor("lv-success");
+        gc.setAuthor("liudong");
 
         // 自定义文件命名，注意 %s 会自动填充表实体属性！
         gc.setMapperName("%sMapper");
@@ -46,8 +47,8 @@ public class MyGenerator {
         dsc.setDbType(DbType.MYSQL);
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("admin");
-        dsc.setUrl("jdbc:mysql://127.0.0.1:3306/homework?characterEncoding=utf8");
+        dsc.setPassword("root");
+        dsc.setUrl("jdbc:mysql://127.0.0.1:3306/blog?characterEncoding=utf8");
         mpg.setDataSource(dsc);
 
         // 策略配置
@@ -55,7 +56,7 @@ public class MyGenerator {
 //        strategy.setTablePrefix(new String[]{""});// 此处可以修改为您的表前缀
 //        strategy.setNaming(NamingStrategy.remove_prefix_and_camel);// 表名生成策略
 //        strategy.setNaming(NamingStrategy.removePrefixAndCamel());// 表名生成策略
-        strategy.setInclude(new String[]{"user"}); // 需要生成的表
+        strategy.setInclude(new String[]{"student"}); // 需要生成的表
 //        strategy.setExclude(new String[]{"t_rong_bid"}); // 排除生成的表
         // 字段名生成策略
         strategy.setNaming(NamingStrategy.underline_to_camel);
@@ -81,7 +82,7 @@ public class MyGenerator {
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setParent("com.homework");
+        pc.setParent("com.springboot.blog");
         pc.setModuleName("");
         pc.setController("controller");
 
