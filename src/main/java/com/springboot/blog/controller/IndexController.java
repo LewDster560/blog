@@ -20,16 +20,4 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping("/get")
-    public String get() {
-        String str = redisUtil.get("l").toString();
-        return str;
-    }
-
-    @GetMapping("/set")
-    @ResponseBody
-    public void set() {
-        boolean flag = redisUtil.set("1", "good");
-        System.out.println(flag);
-    }
 }

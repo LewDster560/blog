@@ -1,7 +1,9 @@
 package com.springboot.blog;
 
+import com.springboot.blog.utils.RedisUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -9,8 +11,18 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class BlogApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+    @Autowired
+    RedisUtil redisUtil;
+
+    @Test
+    public void contextLoads() {
+    }
+
+    @Test
+    public void testRedis() {
+        boolean flag = redisUtil.set("1", "bad");
+        System.out.println(flag);
+        System.out.println(redisUtil.get("1"));
+    }
 
 }
