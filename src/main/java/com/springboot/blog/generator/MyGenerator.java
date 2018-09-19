@@ -89,7 +89,7 @@ public class MyGenerator {
         mpg.setPackageInfo(pc);
 
         // 执行生成
-        mpg.execute();
+//        mpg.execute();
     }
 
 }
