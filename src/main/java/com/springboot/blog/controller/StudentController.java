@@ -36,10 +36,10 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @ApiOperation(hidden = true, value = "rest")
+    @ApiOperation(hidden = false, value = "rest")
     @GetMapping("/rest")
     public Object restTest() {
-        return restTemplate.getForObject("http://localhost:8080/students", Object.class);
+        return restTemplate.getForObject("http://localhost:8080/students/get", Object.class);
     }
 
     @ApiOperation(value = "获取所有学生信息")
