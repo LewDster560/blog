@@ -1,6 +1,7 @@
 package com.springboot.blog.generator;
 
 import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
@@ -25,14 +26,15 @@ public class MyGenerator {
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
-        gc.setOutputDir("E:\\blog\\src\\main\\java");
-        //gc.setOutputDir("D:\\test");
+//        gc.setOutputDir("E:\\blog\\src\\main\\java");
+        gc.setOutputDir("D:\\test");
         gc.setFileOverride(true);
         gc.setActiveRecord(true);
         gc.setEnableCache(false);// XML 二级缓存
         gc.setBaseResultMap(false);// XML ResultMap
         gc.setBaseColumnList(false);// XML columList
         gc.setAuthor("liudong");
+        gc.setIdType(IdType.AUTO);
 
         // 自定义文件命名，注意 %s 会自动填充表实体属性！
         gc.setMapperName("%sMapper");
@@ -61,9 +63,9 @@ public class MyGenerator {
         // 字段名生成策略
         strategy.setNaming(NamingStrategy.underline_to_camel);
         // 自定义实体父类
-//         strategy.setSuperEntityClass("hello.entity.BaseEntity");
+        //strategy.setSuperEntityClass("com.springboot.blog.entity.BaseEntity");
         // 自定义实体，公共字段
-        strategy.setSuperEntityColumns(new String[]{"id"});
+        //strategy.setSuperEntityColumns(new String[]{"id"});
         // 自定义 mapper 父类
         // strategy.setSuperMapperClass("com.fcs.demo.TestMapper");
         // 自定义 service 父类
@@ -89,7 +91,7 @@ public class MyGenerator {
         mpg.setPackageInfo(pc);
 
         // 执行生成
-//        mpg.execute();
+        mpg.execute();
     }
 
 }

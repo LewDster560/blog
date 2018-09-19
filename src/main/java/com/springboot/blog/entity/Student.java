@@ -1,11 +1,13 @@
 package com.springboot.blog.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author liudong
@@ -15,10 +17,21 @@ public class Student extends Model<Student> {
 
     private static final long serialVersionUID = 1L;
 
+    @TableId(value = "id", type = IdType.AUTO)
+    private Integer id;
+
     private String name;
 
     private Integer age;
 
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -38,14 +51,15 @@ public class Student extends Model<Student> {
 
     @Override
     protected Serializable pkVal() {
-        return null;
+        return this.id;
     }
 
     @Override
     public String toString() {
         return "Student{" +
-        "name=" + name +
-        ", age=" + age +
-        "}";
+                "id=" + id +
+                ", name=" + name +
+                ", age=" + age +
+                "}";
     }
 }
