@@ -1,6 +1,6 @@
 package com.homework.exception;
 
-import com.homework.utils.R;
+import com.baomidou.mybatisplus.extension.api.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -32,7 +32,7 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public R jsonErrorHandler(HttpServletRequest req, MyException e) throws Exception {
         //TODO 错误日志处理
-        return R.fail(e.getMessage(), "some data");
+        return R.failed(e.getMessage());
     }
 
 }
