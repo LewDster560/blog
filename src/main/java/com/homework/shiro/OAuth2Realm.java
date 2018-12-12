@@ -2,6 +2,7 @@ package com.homework.shiro;
 
 import com.homework.service.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -18,7 +19,6 @@ public class OAuth2Realm extends AuthorizingRealm {
 
     /**
      * 授权
-     *
      * @param principalCollection
      * @return
      */
@@ -30,18 +30,18 @@ public class OAuth2Realm extends AuthorizingRealm {
 
     /**
      * 认证
-     *
      * @param authenticationToken
      * @return
      * @throws AuthenticationException
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
+        UsernamePasswordToken token = (UsernamePasswordToken)authenticationToken;
 
         //注意token.getUsername()是指email！！
         AccountProfile profile = userService.login(token.getUsername(), String.valueOf(token.getPassword()));
 
+        SecurityUtils.getSubject().getSession().setAttribute("profile", profile);
 
         log.info("---------------->进入认证步骤");
 

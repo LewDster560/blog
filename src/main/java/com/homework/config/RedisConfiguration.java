@@ -9,11 +9,6 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 
 import java.net.UnknownHostException;
 
-/**
- * redis配置
- *
- * @author ld
- */
 @Configuration
 public class RedisConfiguration {
 

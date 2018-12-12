@@ -1,7 +1,7 @@
 package com.homework.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.homework.entity.Category;
+import com.homework.entity.UserMessage;
 
 /**
  * <p>
@@ -9,8 +9,8 @@ import com.homework.entity.Category;
  * </p>
  *
  * @author lv-success
- * @since 2018-10-14
+ * @since 2018-12-05
  */
-public interface CategoryMapper extends BaseMapper<Category> {
+public interface UserMessageMapper extends BaseMapper<UserMessage> {
 
 }

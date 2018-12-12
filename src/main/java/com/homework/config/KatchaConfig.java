@@ -14,7 +14,7 @@ import java.util.Properties;
 public class KatchaConfig {
 
     @Bean
-    public DefaultKaptcha producer() {
+    public DefaultKaptcha producer () {
         Properties propertis = new Properties();
         propertis.put("kaptcha.border", "no");
         propertis.put("kaptcha.image.height", "38");

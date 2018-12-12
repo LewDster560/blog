@@ -1,5 +1,6 @@
 package com.homework.config;
 
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.homework.shiro.OAuth2Realm;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.mgt.SecurityManager;
@@ -40,10 +41,15 @@ public class ShiroConfig {
         hashMap.put("/login", "anon");
         hashMap.put("/user*", "user");
         hashMap.put("/user/**", "user");
-        hashMap.put("/post/**", "user");
         filterFactoryBean.setFilterChainDefinitionMap(hashMap);
 
         return filterFactoryBean;
+    }
+
+    //用于thymeleaf模板使用shiro标签
+    @Bean
+    public ShiroDialect shiroDialect() {
+        return new ShiroDialect();
     }
 
 }
